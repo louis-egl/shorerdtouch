@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shore Road Invitational</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1 id="site-title">SHORE ROAD INVITATIONAL</h1>
+    <h2 id="subtitle">Student Summer Touch League</h2>
+  </header>
+
+  <nav>
+    <a href="#register">Register</a>
+    <a href="#draw">Draw</a>
+    <a href="#standings">Standings</a>
+    <a href="#jerseys">Purchase Jerseys</a>
+  </nav>
+
+  <section class="hero">
+    <div class="slideshow-container">
+      <img class="slideshow-image" src="shore rd 1.jpg" alt="Touch image 1" />
+    </div>
+    <div class="hero-text">
+      <p>The Shore Rd Invitational is returning to Orākei Domain this December. Stay tuned.</p>
+    </div>
+  </section>
+
+  <section id="register">
+    <h2>Register</h2>
+    <iframe src="https://docs.google.com/forms/d/e/13i2OtQcAFl_H1fUEn8ccSIhGMsivuKAuEn4Wg6j5Dak/viewform?embedded=true">Loading…</iframe>
+  </section>
+
+  <section id="draw">
+    <h2>Draw</h2>
+    <p>Draw will be uploaded and updated each week based on submitted results.</p>
+    <!-- Placeholder for future draw implementation -->
+  </section>
+
+  <section id="standings">
+    <h2>Standings</h2>
+    <p>Standings will update each round. Stay tuned!</p>
+    <!-- Placeholder for future standings implementation -->
+  </section>
+
+  <section id="jerseys">
+    <h2>Purchase Jerseys</h2>
+    <p>Jerseys coming soon. Payment will be enabled through Stripe.</p>
+  </section>
+
+  <script>
+    // Simple JS slideshow (fades through photos every 4 seconds)
+    const images = [
+      "shore rd 1.jpg",
+      "shore rd 2.jpg",
+      "shore rd 3.jpg",
+      "shrd4.jpg",
+      "shrd5.jpg",
+      "shrd6.jpg",
+      "shrd7.jpg",
+      "shrdrd8.jpg",
+      "shrrdYES.jpg"
+    ];
+
+    let current = 0;
+    const imgElement = document.querySelector('.slideshow-image');
+
+    setInterval(() => {
+      current = (current + 1) % images.length;
+      imgElement.src = images[current];
+    }, 4000);
+  </script>
+</body>
+</html>
