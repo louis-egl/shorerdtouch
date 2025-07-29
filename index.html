@@ -1,76 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shore Road Invitational</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shore Rd Invitational</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'EB Garamond', serif;
+      background-color: #fcfcf7;
+      color: #1a1a1a;
+    }
+
+    header {
+      background-color: #e8f5e9;
+      padding: 30px 20px 10px 20px;
+      text-align: center;
+      border-bottom: 1px solid #d0e6d2;
+    }
+
+    #site-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 3em;
+      color: #063f2d;
+      margin: 0;
+    }
+
+    #subtitle {
+      font-size: 1.4em;
+      color: #4a635d;
+      margin-top: 5px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      background-color: #e8f5e9;
+      border-bottom: 1px solid #c0d9c4;
+    }
+
+    nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: #065f46;
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .slideshow-container {
+      max-width: 1000px;
+      margin: 30px auto 20px auto;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .slide-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-message {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #374151;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+      .slide-image {
+        height: 200px;
+      }
+      .hero-message {
+        font-size: 1em;
+        padding: 0 10px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1 id="site-title">SHORE ROAD INVITATIONAL</h1>
-    <h2 id="subtitle">Student Summer Touch League</h2>
+    <p id="subtitle">Student Summer Touch League</p>
   </header>
-
   <nav>
-    <a href="#register">Register</a>
-    <a href="#draw">Draw</a>
-    <a href="#standings">Standings</a>
-    <a href="#jerseys">Purchase Jerseys</a>
+    <a href="register.html">Register</a>
+    <a href="draw.html">Draw</a>
+    <a href="standings.html">Standings</a>
+    <a href="purchase.html">Purchase Jerseys</a>
   </nav>
 
-  <section class="hero">
-    <div class="slideshow-container">
-      <img class="slideshow-image" src="shore rd 1.jpg" alt="Touch image 1" />
-    </div>
-    <div class="hero-text">
-      <p>The Shore Rd Invitational is returning to Orākei Domain this December. Stay tuned.</p>
-    </div>
-  </section>
+  <div class="slideshow-container">
+    <img src="shrd4.jpg" class="slide-image" alt="Shore Road 1">
+  </div>
 
-  <section id="register">
-    <h2>Register</h2>
-    <iframe src="https://docs.google.com/forms/d/e/13i2OtQcAFl_H1fUEn8ccSIhGMsivuKAuEn4Wg6j5Dak/viewform?embedded=true">Loading…</iframe>
-  </section>
-
-  <section id="draw">
-    <h2>Draw</h2>
-    <p>Draw will be uploaded and updated each week based on submitted results.</p>
-    <!-- Placeholder for future draw implementation -->
-  </section>
-
-  <section id="standings">
-    <h2>Standings</h2>
-    <p>Standings will update each round. Stay tuned!</p>
-    <!-- Placeholder for future standings implementation -->
-  </section>
-
-  <section id="jerseys">
-    <h2>Purchase Jerseys</h2>
-    <p>Jerseys coming soon. Payment will be enabled through Stripe.</p>
-  </section>
-
-  <script>
-    // Simple JS slideshow (fades through photos every 4 seconds)
-    const images = [
-      "shore rd 1.jpg",
-      "shore rd 2.jpg",
-      "shore rd 3.jpg",
-      "shrd4.jpg",
-      "shrd5.jpg",
-      "shrd6.jpg",
-      "shrd7.jpg",
-      "shrdrd8.jpg",
-      "shrrdYES.jpg"
-    ];
-
-    let current = 0;
-    const imgElement = document.querySelector('.slideshow-image');
-
-    setInterval(() => {
-      current = (current + 1) % images.length;
-      imgElement.src = images[current];
-    }, 4000);
-  </script>
+  <p class="hero-message">The Shore Rd Invitational is returning to Orākei Domain this December. Stay tuned.</p>
 </body>
 </html>
