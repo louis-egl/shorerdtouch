@@ -12,7 +12,6 @@
       margin: 0;
       background-color: #f4f4ed;
       color: #333;
-      padding: 0;
     }
 
     header {
@@ -31,7 +30,7 @@
 
     header p {
       margin: 8px 0 0;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: normal;
     }
 
@@ -91,16 +90,9 @@
 
     .gallery-container {
       max-width: 1000px;
-      margin: 10px auto 0;
-      overflow: hidden;
+      margin: 30px auto 0;
       position: relative;
-      border-radius: 10px;
-    }
-
-    .gallery-slide {
-      display: flex;
-      width: max-content;
-      transition: opacity 1s ease-in-out, transform 0.6s ease-in-out;
+      height: 400px;
     }
 
     .gallery-slide img {
@@ -108,6 +100,15 @@
       height: 400px;
       object-fit: cover;
       border-radius: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .gallery-slide img.active {
+      opacity: 1;
     }
 
     .home-message {
@@ -118,24 +119,17 @@
       font-weight: bold;
     }
 
-    iframe {
-      width: 100%;
-      height: 800px;
-      border: none;
-    }
-
     h2 {
       margin-top: 10px;
       font-size: 2rem;
       font-family: 'Bebas Neue', sans-serif;
+      text-align: center;
     }
 
-    .standings-placeholder, .draw-placeholder {
-      font-style: italic;
+    .section p {
+      font-size: 1.1rem;
       text-align: center;
-      margin-top: 30px;
-      font-size: 1.2rem;
-      color: #555;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -143,8 +137,8 @@
   <header onclick="showSection('home')">
     <img src="gteclogo.png" alt="Grammar TEC Logo" class="header-logo-left">
     <img src="shorerdlogo.png" alt="Shore Rd Logo" class="header-logo-right">
-    <h1>Shore Rd Invitational</h1>
-    <p>Student-Led Touch Tournament | Orākei Domain</p>
+    <h1>SHORE RD INVITATIONAL</h1>
+    <p>Student Summer Touch League | Orākei Domain</p>
   </header>
 
   <nav>
@@ -158,7 +152,7 @@
   <div id="home" class="section active">
     <div class="gallery-container">
       <div class="gallery-slide" id="gallery">
-        <img src="shr10.jpg" alt="Gallery 1">
+        <img src="shr10.jpg" class="active" alt="Gallery 1">
         <img src="shrrer.jpg" alt="Gallery 2">
         <img src="shrrr15.jpg" alt="Gallery 3">
         <img src="shrrr.jpg" alt="Gallery 4">
@@ -170,23 +164,23 @@
   </div>
 
   <div id="register" class="section">
-    <h2>Team Registration</h2>
-    <p>Team registration opens in October. Captains will be contacted with links.</p>
+    <h2>Registration</h2>
+    <p>Registration will open soon — more details to come.</p>
   </div>
 
   <div id="draw" class="section">
     <h2>Draw</h2>
-    <p class="draw-placeholder">Draw coming soon. Fixtures will be released closer to kickoff.</p>
+    <p>Draw coming soon. Fixtures will be released closer to kickoff.</p>
   </div>
 
   <div id="standings" class="section">
     <h2>Standings</h2>
-    <p class="standings-placeholder">Standings will be published after Round 1.</p>
+    <p>Standings will be published after Round 1.</p>
   </div>
 
   <div id="jerseys" class="section">
-    <h2>Purchase Jerseys</h2>
-    <p style="text-align: center; margin-top: 20px;">Payment portal coming soon. Stripe integration will appear here.</p>
+    <h2>Jerseys</h2>
+    <p>Teams will have the opportunity to help design their own custom touch singlets. More details to come after registration.</p>
   </div>
 
   <script>
@@ -195,22 +189,16 @@
       document.getElementById(id).classList.add('active');
     }
 
-    // Fade slideshow logic
-    const gallery = document.getElementById('gallery');
-    const images = gallery.querySelectorAll('img');
+    // Slideshow fade logic
+    const images = document.querySelectorAll('#gallery img');
     let index = 0;
 
-    images.forEach((img, i) => {
-      if (i !== 0) img.style.opacity = '0';
-      img.style.position = 'absolute';
-      img.style.transition = 'opacity 1s ease-in-out';
-    });
-
     setInterval(() => {
-      images[index].style.opacity = '0';
+      images[index].classList.remove('active');
       index = (index + 1) % images.length;
-      images[index].style.opacity = '1';
+      images[index].classList.add('active');
     }, 3000);
   </script>
 </body>
 </html>
+
