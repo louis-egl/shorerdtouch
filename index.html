@@ -4,59 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shore Rd Invitational</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
-      padding: 0;
       background-color: #f4f4ed;
-      color: #1b1b1b;
+      color: #333;
+      padding: 0;
     }
 
     header {
       background-color: #2f4b2f;
       color: #fff;
-      padding: 20px 0 10px;
+      padding: 20px 20px 10px;
       text-align: center;
       position: relative;
-      cursor: pointer;
-    }
-
-    header img.logo-left {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      height: 60px;
-      width: 60px;
-      border-radius: 50%;
-    }
-
-    header img.logo-right {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      height: 50px;
     }
 
     header h1 {
-      font-size: 2.8rem;
       margin: 0;
+      font-size: 3rem;
+      font-family: 'Bebas Neue', sans-serif;
     }
 
     header p {
-      margin: 6px 0 0;
+      margin: 8px 0 0;
       font-size: 1.2rem;
       font-weight: normal;
-      color: #e2e8db;
+    }
+
+    .header-logo-left,
+    .header-logo-right {
+      position: absolute;
+      top: 10px;
+      width: 60px;
+      height: 60px;
+    }
+
+    .header-logo-left {
+      left: 20px;
+    }
+
+    .header-logo-right {
+      right: 20px;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      background: #e6e9dd;
-      padding: 15px 0;
+      background: #e9e9df;
+      padding: 18px 0;
       gap: 40px;
     }
 
@@ -64,22 +63,25 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 1.3rem;
-      color: #2f4b2f;
+      color: #111;
       transition: all 0.2s ease;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.5px;
     }
 
     nav a:hover {
       transform: scale(1.05);
+      color: #2e4a2c;
       text-decoration: underline;
     }
 
     .section {
       display: none;
       max-width: 1000px;
-      margin: 20px auto 40px;
+      margin: 30px auto;
       padding: 30px;
-      background: white;
-      border-radius: 10px;
+      background: #fff;
+      border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
@@ -89,39 +91,31 @@
 
     .gallery-container {
       max-width: 1000px;
-      margin: 0 auto;
+      margin: 10px auto 0;
       overflow: hidden;
       position: relative;
-      height: 440px;
-      border-radius: 12px;
+      border-radius: 10px;
     }
 
     .gallery-slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1.2s ease-in-out;
+      display: flex;
+      width: max-content;
+      transition: opacity 1s ease-in-out, transform 0.6s ease-in-out;
     }
 
     .gallery-slide img {
-      width: 100%;
-      height: 100%;
+      width: 1000px;
+      height: 400px;
       object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .gallery-slide.active {
-      opacity: 1;
-      z-index: 1;
+      border-radius: 10px;
     }
 
     .home-message {
       text-align: center;
+      margin: 20px auto;
       font-size: 1.4rem;
+      color: #2e4a2c;
       font-weight: bold;
-      margin: 20px 0;
-      color: #2f4b2f;
     }
 
     iframe {
@@ -131,9 +125,9 @@
     }
 
     h2 {
+      margin-top: 10px;
       font-size: 2rem;
-      margin-bottom: 20px;
-      color: #2f4b2f;
+      font-family: 'Bebas Neue', sans-serif;
     }
 
     .standings-placeholder, .draw-placeholder {
@@ -147,43 +141,37 @@
 </head>
 <body>
   <header onclick="showSection('home')">
-    <img src="shore-logo.png" alt="Logo" class="logo-left">
-    <img src="grammar-tec-logo.png" alt="Grammar Tec" class="logo-right">
+    <img src="gteclogo.png" alt="Grammar TEC Logo" class="header-logo-left">
+    <img src="shorerdlogo.png" alt="Shore Rd Logo" class="header-logo-right">
     <h1>Shore Rd Invitational</h1>
-    <p>Student Summer Touch League</p>
+    <p>Student-Led Touch Tournament | Orākei Domain</p>
   </header>
 
   <nav>
+    <a href="#" onclick="showSection('home')">Home</a>
     <a href="#" onclick="showSection('register')">Register</a>
     <a href="#" onclick="showSection('draw')">Draw</a>
     <a href="#" onclick="showSection('standings')">Standings</a>
-    <a href="#" onclick="showSection('jerseys')">Purchase Jerseys</a>
+    <a href="#" onclick="showSection('jerseys')">Jerseys</a>
   </nav>
 
   <div id="home" class="section active">
-    <div class="gallery-container" id="slideshow">
-      <div class="gallery-slide active"><img src="shrd4.jpg" /></div>
-      <div class="gallery-slide"><img src="shrd5.jpg" /></div>
-      <div class="gallery-slide"><img src="shrd6.jpg" /></div>
-      <div class="gallery-slide"><img src="shrd7.jpg" /></div>
-      <div class="gallery-slide"><img src="shrdrd8.jpg" /></div>
-      <div class="gallery-slide"><img src="shore rd 1.jpg" /></div>
-      <div class="gallery-slide"><img src="shore rd 2.jpg" /></div>
-      <div class="gallery-slide"><img src="shore rd 3.jpg" /></div>
-      <div class="gallery-slide"><img src="shrrdYES.jpg" /></div>
-      <div class="gallery-slide"><img src="shr10.jpg" /></div>
-      <div class="gallery-slide"><img src="shrrer.jpg" /></div>
-      <div class="gallery-slide"><img src="shrrr15.jpg" /></div>
-      <div class="gallery-slide"><img src="shrrr.jpg" /></div>
-      <div class="gallery-slide"><img src="shr14.jpg" /></div>
-      <div class="gallery-slide"><img src="shr11.jpg" /></div>
+    <div class="gallery-container">
+      <div class="gallery-slide" id="gallery">
+        <img src="shr10.jpg" alt="Gallery 1">
+        <img src="shrrer.jpg" alt="Gallery 2">
+        <img src="shrrr15.jpg" alt="Gallery 3">
+        <img src="shrrr.jpg" alt="Gallery 4">
+        <img src="shr14.jpg" alt="Gallery 5">
+        <img src="shr11.jpg" alt="Gallery 6">
+      </div>
     </div>
-    <p class="home-message">The Shore Rd Invitational is returning to Orākei Domain this December. Stay tuned.</p>
+    <p class="home-message">Returning soon... Extended format kicks off December 3. Stay tuned.</p>
   </div>
 
   <div id="register" class="section">
     <h2>Team Registration</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfU21xdoKslw4k-znLvWBMjePuvPpR56hJyhkXQCPI4UIaDug/viewform?embedded=true">Loading…</iframe>
+    <p>Team registration opens in October. Captains will be contacted with links.</p>
   </div>
 
   <div id="draw" class="section">
@@ -198,23 +186,30 @@
 
   <div id="jerseys" class="section">
     <h2>Purchase Jerseys</h2>
-    <p style="text-align: center; margin-top: 30px;">Payment portal coming soon. Stripe integration will appear here.</p>
+    <p style="text-align: center; margin-top: 20px;">Payment portal coming soon. Stripe integration will appear here.</p>
   </div>
 
   <script>
-    const sections = document.querySelectorAll('.section');
     function showSection(id) {
-      sections.forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
 
-    // Fading Slideshow Script
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.gallery-slide');
+    // Fade slideshow logic
+    const gallery = document.getElementById('gallery');
+    const images = gallery.querySelectorAll('img');
+    let index = 0;
+
+    images.forEach((img, i) => {
+      if (i !== 0) img.style.opacity = '0';
+      img.style.position = 'absolute';
+      img.style.transition = 'opacity 1s ease-in-out';
+    });
+
     setInterval(() => {
-      slides[slideIndex].classList.remove('active');
-      slideIndex = (slideIndex + 1) % slides.length;
-      slides[slideIndex].classList.add('active');
+      images[index].style.opacity = '0';
+      index = (index + 1) % images.length;
+      images[index].style.opacity = '1';
     }, 3000);
   </script>
 </body>
