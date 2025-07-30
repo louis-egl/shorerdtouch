@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shore Rd Invitational</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Anton', sans-serif;
+      background-color: #f4f4ed;
+      color: #333;
+    }
+
+    header {
+      background-color: #2f4b2f;
+      color: #fff;
+      padding: 20px 0 10px;
+      text-align: center;
+      position: relative;
+    }
+
+    header img.logo-left {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      height: 60px;
+    }
+
+    header img.logo-right {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      height: 60px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #e9e9df;
+      padding: 18px 0;
+      gap: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #111;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover {
+      transform: scale(1.05);
+      color: #2e4a2c;
+      text-decoration: underline;
+    }
+
+    .section {
+      display: none;
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .active {
+      display: block;
+    }
+
+    .gallery-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gallery-slide {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+      width: max-content;
+    }
+
+    .gallery-slide img {
+      width: 100vw;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .home-message {
+      text-align: center;
+      margin: 20px auto 5px;
+      font-size: 1.4rem;
+      color: #2e4a2c;
+      font-weight: bold;
+    }
+
+    .partnership {
+      text-align: center;
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-top: 5px;
+      color: #555;
+    }
+
+    iframe {
+      width: 100%;
+      height: 2030px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="shorerdlogo.png" alt="Shore Rd Logo" class="logo-left">
+    <img src="gteclogo.png" alt="Grammar Tec Logo" class="logo-right">
+    <h1>SHORE RD INVITATIONAL</h1>
+    <p>Student Summer Touch League | Orākei Domain</p>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('register')">Register</a>
+    <a href="#" onclick="showSection('draw')">Draw</a>
+    <a href="#" onclick="showSection('standings')">Standings</a>
+    <a href="#" onclick="showSection('jerseys')">Purchase Jerseys</a>
+  </nav>
+
+  <div id="home" class="section active">
+    <div class="gallery-container">
+      <div class="gallery-slide" id="gallery">
+        <img src="shr10.jpg" alt="Slide 1">
+        <img src="shrrer.jpg" alt="Slide 2">
+        <img src="shrrr15.jpg" alt="Slide 3">
+        <img src="shrrr.jpg" alt="Slide 4">
+        <img src="shr14.jpg" alt="Slide 5">
+        <img src="shr11.jpg" alt="Slide 6">
+      </div>
+    </div>
+    <p class="home-message">Returning soon... Extended format kicks off December 3. Stay tuned.</p>
+    <p class="partnership">In partnership with Grammar Tec Rugby Club</p>
+  </div>
+
+  <div id="register" class="section">
+    <h2>Register</h2>
+    <p>Registration will open soon – more details to come.</p>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfU21xdoKslw4k-znLvWBMjePuvPpR56hJyhkXQCPI4UIaDug/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+
+  <div id="draw" class="section">
+    <h2>Draw</h2>
+    <p>Draw coming soon. Fixtures will be released closer to kickoff.</p>
+  </div>
+
+  <div id="standings" class="section">
+    <h2>Standings</h2>
+    <p>Standings will be published after Round 1.</p>
+  </div>
+
+  <div id="jerseys" class="section">
+    <h2>Purchase Jerseys</h2>
+    <p>Teams will have the opportunity to help design their own custom touch singlets. More details to come after registration.</p>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+
+    const gallery = document.getElementById('gallery');
+    const slideImages = gallery.children;
+    const totalSlides = slideImages.length;
+
+    let index = 0;
+    const firstClone = slideImages[0].cloneNode(true);
+    gallery.appendChild(firstClone);
+
+    function nextSlide() {
+      index++;
+      gallery.style.transition = 'transform 0.6s ease-in-out';
+      gallery.style.transform = `translateX(-${index * window.innerWidth}px)`;
+
+      if (index === totalSlides) {
+        setTimeout(() => {
+          gallery.style.transition = 'none';
+          index = 0;
+          gallery.style.transform = `translateX(0)`;
+        }, 600);
+      }
+    }
+
+    setInterval(nextSlide, 3000);
+  </script>
+</body>
+</html>
