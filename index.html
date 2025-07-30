@@ -1,148 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shore Rd Invitational</title>
-  <link rel="icon" type="image/png" href="shore-logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <style>
     body {
+      font-family: 'Playfair Display', serif;
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      padding: 0;
       background-color: #f4f4ed;
-      color: #1c3b22;
+      color: #1b1b1b;
     }
 
     header {
-      background-color: #2f4f2f;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 5px 20px;
+      background-color: #2f4b2f;
+      color: #fff;
+      padding: 20px 0 10px;
+      text-align: center;
+      position: relative;
+      cursor: pointer;
     }
 
     header img.logo-left {
-      height: 50px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
     }
 
     header img.logo-right {
+      position: absolute;
+      top: 20px;
+      right: 20px;
       height: 50px;
     }
 
-    .title-area {
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .title-area h1 {
-      font-size: 2.8em;
-      margin: 5px;
-      font-weight: 900;
-    }
-
-    .title-area h2 {
-      font-size: 1.3em;
-      font-weight: 600;
+    header h1 {
+      font-size: 2.8rem;
       margin: 0;
+    }
+
+    header p {
+      margin: 6px 0 0;
+      font-size: 1.2rem;
+      font-weight: normal;
+      color: #e2e8db;
     }
 
     nav {
       display: flex;
       justify-content: center;
+      background: #e6e9dd;
+      padding: 15px 0;
       gap: 40px;
-      padding: 15px;
-      background-color: #eaeade;
     }
 
     nav a {
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.2em;
-      color: #2f4f2f;
-      transition: color 0.2s;
+      font-size: 1.3rem;
+      color: #2f4b2f;
+      transition: all 0.2s ease;
     }
 
     nav a:hover {
-      color: #416d3d;
+      transform: scale(1.05);
+      text-decoration: underline;
     }
 
-    .slideshow-container {
-      position: relative;
-      max-width: 1000px;
-      margin: 30px auto;
-      border-radius: 15px;
-      overflow: hidden;
-    }
-
-    .slide {
+    .section {
       display: none;
-      width: 100%;
+      max-width: 1000px;
+      margin: 20px auto 40px;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
-    .slide img {
-      width: 100%;
-      height: auto;
+    .active {
       display: block;
     }
 
-    .footer-text {
+    .gallery-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+      height: 440px;
+      border-radius: 12px;
+    }
+
+    .gallery-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .gallery-slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .home-message {
       text-align: center;
-      font-size: 1.4em;
+      font-size: 1.4rem;
       font-weight: bold;
-      margin-top: 10px;
-      color: #1c3b22;
+      margin: 20px 0;
+      color: #2f4b2f;
+    }
+
+    iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #2f4b2f;
+    }
+
+    .standings-placeholder, .draw-placeholder {
+      font-style: italic;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #555;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <img src="shore-logo.png" alt="Shore Rd Logo" class="logo-left">
-    <img src="grammar-tec.png" alt="Grammar TEC Logo" class="logo-right">
+  <header onclick="showSection('home')">
+    <img src="shore-logo.png" alt="Logo" class="logo-left">
+    <img src="grammar-tec-logo.png" alt="Grammar Tec" class="logo-right">
+    <h1>Shore Rd Invitational</h1>
+    <p>Student Summer Touch League</p>
   </header>
 
-  <div class="title-area">
-    <h1>Shore Rd Invitational</h1>
-    <h2>Student Summer Touch League</h2>
-  </div>
-
   <nav>
-    <a href="#">Register</a>
-    <a href="#">Draw</a>
-    <a href="#">Standings</a>
-    <a href="#">Purchase Jerseys</a>
+    <a href="#" onclick="showSection('register')">Register</a>
+    <a href="#" onclick="showSection('draw')">Draw</a>
+    <a href="#" onclick="showSection('standings')">Standings</a>
+    <a href="#" onclick="showSection('jerseys')">Purchase Jerseys</a>
   </nav>
 
-  <div class="slideshow-container">
-    <div class="slide"><img src="shr10.jpg" alt="Slide 1"></div>
-    <div class="slide"><img src="shrrer.jpg" alt="Slide 2"></div>
-    <div class="slide"><img src="shrrr15.jpg" alt="Slide 3"></div>
-    <div class="slide"><img src="shrrr.jpg" alt="Slide 4"></div>
-    <div class="slide"><img src="shr14.jpg" alt="Slide 5"></div>
-    <div class="slide"><img src="shr11.jpg" alt="Slide 6"></div>
-    <div class="slide"><img src="grammar-tec.jpg" alt="Slide 7"></div>
+  <div id="home" class="section active">
+    <div class="gallery-container" id="slideshow">
+      <div class="gallery-slide active"><img src="shrd4.jpg" /></div>
+      <div class="gallery-slide"><img src="shrd5.jpg" /></div>
+      <div class="gallery-slide"><img src="shrd6.jpg" /></div>
+      <div class="gallery-slide"><img src="shrd7.jpg" /></div>
+      <div class="gallery-slide"><img src="shrdrd8.jpg" /></div>
+      <div class="gallery-slide"><img src="shore rd 1.jpg" /></div>
+      <div class="gallery-slide"><img src="shore rd 2.jpg" /></div>
+      <div class="gallery-slide"><img src="shore rd 3.jpg" /></div>
+      <div class="gallery-slide"><img src="shrrdYES.jpg" /></div>
+      <div class="gallery-slide"><img src="shr10.jpg" /></div>
+      <div class="gallery-slide"><img src="shrrer.jpg" /></div>
+      <div class="gallery-slide"><img src="shrrr15.jpg" /></div>
+      <div class="gallery-slide"><img src="shrrr.jpg" /></div>
+      <div class="gallery-slide"><img src="shr14.jpg" /></div>
+      <div class="gallery-slide"><img src="shr11.jpg" /></div>
+    </div>
+    <p class="home-message">The Shore Rd Invitational is returning to Orākei Domain this December. Stay tuned.</p>
   </div>
 
-  <div class="footer-text">
-    Returning soon... Extended format kicks off December 3. Stay tuned.
+  <div id="register" class="section">
+    <h2>Team Registration</h2>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfU21xdoKslw4k-znLvWBMjePuvPpR56hJyhkXQCPI4UIaDug/viewform?embedded=true">Loading…</iframe>
+  </div>
+
+  <div id="draw" class="section">
+    <h2>Draw</h2>
+    <p class="draw-placeholder">Draw coming soon. Fixtures will be released closer to kickoff.</p>
+  </div>
+
+  <div id="standings" class="section">
+    <h2>Standings</h2>
+    <p class="standings-placeholder">Standings will be published after Round 1.</p>
+  </div>
+
+  <div id="jerseys" class="section">
+    <h2>Purchase Jerseys</h2>
+    <p style="text-align: center; margin-top: 30px;">Payment portal coming soon. Stripe integration will appear here.</p>
   </div>
 
   <script>
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
-
-    function showSlides() {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1; }
-      slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    const sections = document.querySelectorAll('.section');
+    function showSection(id) {
+      sections.forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
 
-    showSlides();
+    // Fading Slideshow Script
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.gallery-slide');
+    setInterval(() => {
+      slides[slideIndex].classList.remove('active');
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
+    }, 3000);
   </script>
-
 </body>
 </html>
