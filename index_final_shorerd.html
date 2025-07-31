@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shore Rd Invitational</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Anton', sans-serif;
+      margin: 0;
+      background-color: #f4f4ed;
+      color: #1b1b1b;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2f4b2f;
+      color: #fff;
+      padding: 40px 20px 10px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: normal;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      font-size: 1.3rem;
+      font-weight: normal;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #e9e9df;
+      padding: 18px 0;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 1.3rem;
+      color: #111;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover {
+      transform: scale(1.05);
+      color: #2e4a2c;
+      text-decoration: underline;
+    }
+
+    .gallery-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .logo-img {
+      width: 65px;
+      height: auto;
+    }
+
+    .gallery-container {
+      width: 100%;
+      max-width: 1000px;
+      overflow: hidden;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .gallery-slide {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .gallery-slide img {
+      width: 1000px;
+      max-width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .home-message {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.4rem;
+      color: #2e4a2c;
+      font-weight: bold;
+    }
+
+    .partnership {
+      text-align: center;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    .section {
+      display: none;
+      max-width: 1000px;
+      margin: 30px auto 0;
+      padding: 30px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .active {
+      display: block;
+    }
+
+    iframe {
+      width: 100%;
+      height: 2030px;
+      border: none;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-size: 2rem;
+    }
+
+    .standings-placeholder,
+    .draw-placeholder {
+      font-style: italic;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .logo-img {
+        width: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shore Rd Invitational</h1>
+    <p>Student Summer Touch League | Orākei Domain</p>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('register')">Register</a>
+    <a href="#" onclick="showSection('draw')">Draw</a>
+    <a href="#" onclick="showSection('standings')">Standings</a>
+    <a href="#" onclick="showSection('jerseys')">Jerseys</a>
+  </nav>
+
+  <div id="home" class="section active">
+    <div class="gallery-wrapper">
+      <img src="shoreroadlog.png" alt="Shore Rd Logo" class="logo-img">
+      <div class="gallery-container">
+        <div class="gallery-slide" id="gallery">
+          <img src="shr10.jpg" alt="Gallery 1">
+          <img src="shr14.jpg" alt="Gallery 2">
+          <img src="shrrer.jpg" alt="Gallery 3">
+          <img src="shr11.jpg" alt="Gallery 4">
+          <img src="shrrr.jpg" alt="Gallery 5">
+          <img src="shrrr15.jpg" alt="Gallery 6">
+        </div>
+      </div>
+      <img src="gteclogo.png" alt="Grammar Tec Logo" class="logo-img">
+    </div>
+    <p class="partnership">In partnership with Grammar Tec Rugby Club</p>
+    <p class="home-message">Returning soon... Extended format kicks off December 3. Stay tuned.</p>
+  </div>
+
+  <div id="register" class="section">
+    <h2>Team Registration</h2>
+    <p>Registration will open soon – more details to come.</p>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfU21xdoKslw4k-znLvWBMjePuvPpR56hJyhkXQCPI4UIaDug/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+
+  <div id="draw" class="section">
+    <h2>Draw</h2>
+    <p class="draw-placeholder">Draw coming soon. Fixtures will be released closer to kickoff.</p>
+  </div>
+
+  <div id="standings" class="section">
+    <h2>Standings</h2>
+    <p class="standings-placeholder">Standings will be published after Round 1.</p>
+  </div>
+
+  <div id="jerseys" class="section">
+    <h2>Purchase Jerseys</h2>
+    <p>Teams will have the opportunity to help design their own custom touch singlets. More details to come after registration.</p>
+  </div>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    const gallery = document.getElementById('gallery');
+    const slideImages = gallery.children;
+    const totalSlides = slideImages.length;
+
+    let index = 0;
+    const firstClone = slideImages[0].cloneNode(true);
+    gallery.appendChild(firstClone);
+
+    function nextSlide() {
+      index++;
+      gallery.style.transition = 'transform 0.6s ease-in-out';
+      gallery.style.transform = `translateX(-${index * 1000}px)`;
+
+      if (index === totalSlides) {
+        setTimeout(() => {
+          gallery.style.transition = 'none';
+          index = 0;
+          gallery.style.transform = `translateX(0)`;
+        }, 600);
+      }
+    }
+
+    setInterval(nextSlide, 3000);
+  </script>
+</body>
+</html>
