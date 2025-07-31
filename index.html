@@ -2,56 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shore Rd Invitational</title>
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
       font-family: 'Anton', sans-serif;
+      margin: 0;
       background-color: #f4f4ed;
       color: #333;
+      padding: 0;
     }
 
     header {
       background-color: #2f4b2f;
       color: #fff;
-      padding: 30px 20px 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-left {
-      height: 60px;
-    }
-
-    .logo-right {
-      height: 50px;
-    }
-
-    .title-block {
-      flex: 1;
+      padding: 40px 20px 10px;
       text-align: center;
+      cursor: pointer;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.8rem;
+      font-size: 2.5rem;
     }
 
     header p {
-      margin: 5px 0 0;
-      font-size: 1.1rem;
+      margin: 8px 0 0;
+      font-size: 1rem;
       font-weight: normal;
     }
 
     nav {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       background: #e9e9df;
-      padding: 18px 0;
-      gap: 40px;
+      padding: 16px 0;
+      gap: 25px;
     }
 
     nav a {
@@ -72,9 +60,9 @@
       display: none;
       max-width: 1000px;
       margin: 30px auto;
-      padding: 30px;
+      padding: 25px;
       background: white;
-      border-radius: 8px;
+      border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
@@ -82,79 +70,94 @@
       display: block;
     }
 
+    /* Responsive slideshow styling */
     .gallery-container {
       width: 100%;
-      overflow: hidden;
-      position: relative;
-    }
-
-    gallery-container {
       max-width: 1000px;
-      margin: 10px auto 0;
-      overflow: hidden;
       margin: 30px auto 0;
+      overflow: hidden;
       position: relative;
       border-radius: 10px;
+      aspect-ratio: 5 / 2;
     }
 
     .gallery-slide {
-      display: flex;
-      width: max-content;
-      transition: opacity 1s ease-in-out, transform 0.6s ease-in-out;
-      height: 400px;
+      position: relative;
+      height: 100%;
     }
 
     .gallery-slide img {
-      width: 1000px;
-      height: 400px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 10px;
       position: absolute;
       top: 0;
       left: 0;
       opacity: 0;
       transition: opacity 1s ease-in-out;
+      border-radius: 10px;
     }
 
     .gallery-slide img.active {
       opacity: 1;
-
     }
 
     .home-message {
       text-align: center;
-      font-size: 1.4rem;
-      font-weight: bold;
+      margin: 15px auto;
+      font-size: 1.3rem;
       color: #2e4a2c;
+      font-weight: bold;
+    }
+
+    .partner-note {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 30px;
+      color: #555;
     }
 
     iframe {
       width: 100%;
-      height: 2030px;
+      height: 2000px;
       border: none;
     }
 
     h2 {
-      margin-top: 10px;
+      margin-top: 0;
       font-size: 2rem;
+      color: #2f4b2f;
     }
 
-    .draw-placeholder,
-    .standings-placeholder {
-      font-size: 1.2rem;
+    p {
+      font-size: 1.1rem;
       color: #333;
-      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 0.9rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+        margin: 0 10px;
+      }
+
+      .home-message {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
 <body>
   <header onclick="showSection('home')">
-    <img src="shorerdlogo.png" alt="Shore Rd Logo" class="logo-left">
-    <div class="title-block">
-      <h1>Shore Rd Invitational</h1>
-      <p>Student Summer Touch League | Orakei Domain</p>
-    </div>
-    <img src="gteclogo.png" alt="Grammar Tec Logo" class="logo-right">
+    <h1>Shore Rd Invitational</h1>
+    <p>Student Summer Touch League | Orākei Domain</p>
   </header>
 
   <nav>
@@ -166,9 +169,22 @@
 
   <div id="home" class="section active">
     <div class="gallery-container">
-      <img id="slide" src="shr10.jpg" alt="Slideshow Image">
+      <div class="gallery-slide" id="gallery">
+        <img src="shrd4.jpg" alt="Gallery 1" class="active">
+        <img src="shrd5.jpg" alt="Gallery 2">
+        <img src="shrd6.jpg" alt="Gallery 3">
+        <img src="shrd7.jpg" alt="Gallery 4">
+        <img src="shrdrd8.jpg" alt="Gallery 5">
+        <img src="shrrdYES.jpg" alt="Gallery 6">
+        <img src="shr10.jpg" alt="Gallery 7">
+        <img src="shrrer.jpg" alt="Gallery 8">
+        <img src="shrrr15.jpg" alt="Gallery 9">
+        <img src="shrrr.jpg" alt="Gallery 10">
+        <img src="shr14.jpg" alt="Gallery 11">
+        <img src="shr11.jpg" alt="Gallery 12">
+      </div>
     </div>
-    <p class="gallery-credit">In partnership with Grammar Tec Rugby Club</p>
+    <p class="partner-note">In partnership with Grammar Tec Rugby Club</p>
     <p class="home-message">The Shore Rd Invitational is returning to Orākei Domain this December. Stay tuned.</p>
   </div>
 
@@ -180,12 +196,12 @@
 
   <div id="draw" class="section">
     <h2>Draw</h2>
-    <p class="draw-placeholder">Draw coming soon. Fixtures will be released closer to kickoff.</p>
+    <p>Draw will be uploaded and updated weekly as results are submitted.</p>
   </div>
 
   <div id="standings" class="section">
     <h2>Standings</h2>
-    <p class="standings-placeholder">Standings will be published after Round 1.</p>
+    <p>Standings will be updated each round. Stay tuned!</p>
   </div>
 
   <div id="jerseys" class="section">
@@ -200,25 +216,18 @@
       document.getElementById(id).classList.add('active');
     }
 
-    // Slideshow images
-    const images = [
-      'shr10.jpg', 'shrrer.jpg', 'shrrr15.jpg', 'shrrr.jpg', 'shr14.jpg', 'shr11.jpg',
-      'shrd4.jpg', 'shrd5.jpg', 'shrd6.jpg', 'shrd7.jpg', 'shrdrd8.jpg', 'shore rd 1.jpg', 'shore rd 2.jpg', 'shore rd 3.jpg', 'shrrdYES.jpg'
-    ];
-
+    // Slideshow fade transition logic
+    const images = document.querySelectorAll('.gallery-slide img');
     let slideIndex = 0;
-    const slide = document.getElementById('slide');
 
-    function fadeShow() {
-      slide.style.opacity = 0;
-      setTimeout(() => {
-        slideIndex = (slideIndex + 1) % images.length;
-        slide.src = images[slideIndex];
-        slide.style.opacity = 1;
-      }, 500);
+    function showNextSlide() {
+      images[slideIndex].classList.remove('active');
+      slideIndex = (slideIndex + 1) % images.length;
+      images[slideIndex].classList.add('active');
     }
 
-    setInterval(fadeShow, 3000);
+    setInterval(showNextSlide, 3000);
   </script>
 </body>
 </html>
+
