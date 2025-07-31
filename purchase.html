@@ -9,3 +9,40 @@
   <p>Jerseys coming soon. Payment will be enabled through Stripe.</p>
 </body>
 </html>
+<h1>Order Your Jersey</h1>
+
+<form id="order-form">
+  <label>Name:
+    <input type="text" id="name" required>
+  </label><br><br>
+
+  <label>Team:
+    <select id="team" required>
+      <option value="">--Select--</option>
+      <option value="Team A">Team A</option>
+      <option value="Team B">Team B</option>
+    </select>
+  </label><br><br>
+
+  <div id="jersey-preview" style="margin: 10px 0;">[Jersey preview will appear here]</div>
+
+  <label>Size:
+    <select id="size" required>
+      <option>S</option>
+      <option>M</option>
+      <option>L</option>
+    </select>
+  </label><br><br>
+
+  <label>Number on Back:
+    <input type="number" id="number" required>
+  </label><br><br>
+
+  <label>Name on Back:
+    <input type="text" id="backName" required>
+  </label><br><br>
+
+  <button type="submit">Submit</button>
+</form>
+
+<div id="confirmation" style="display:none; margin-top:20px;"></div>
